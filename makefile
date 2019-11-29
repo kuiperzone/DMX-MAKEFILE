@@ -8,7 +8,7 @@
 #############################################################################
 # MAKE IMPLEMENTATION FILE - DO NOT MODIFY
 # To configure the project, modify "make-main.conf" and set the option
-# variables accordingly. For information, see "makefile.readme".
+# variables accordingly. For information, see the README.
 #############################################################################
 
 ifndef MAKECMDGOALS
