@@ -20,7 +20,7 @@ is still needed (the solution does not use NMake).
 
 To call make to build a project, you would use something like:
 
-  make rebuild CONF=make-main.conf TARG=debug ARCH=64
+	`make rebuild CONF=make-main.conf TARG=debug ARCH=64`
 
 NOTE. Use mingw32-make under Windows.
 
@@ -29,7 +29,7 @@ the list of options specified.
 
 Or, even just the following will work:
 
-  make
+	`make`
 
 In this case, GNU make will use "makefile" as its default, while other options will
 use default values (where "make-main.conf" is the default configuration filename).
@@ -43,22 +43,22 @@ specified. NOTE. Pathnames containing spaces are not supported.
 ## MAKEFILE COMPONENTS ## 
 Components include:
 
-  makefile : This is the default name of the makefile implementation, and the file to be
-  called using make (or mingw32-make.exe). This file should NOT be modified. Instead,
-  a configuration filename should be supplied using the command line variable "CONF".
+* **makefile** : This is the default name of the makefile implementation, and the file to be
+called using make (or mingw32-make.exe). This file should NOT be modified. Instead,
+a configuration filename should be supplied using the command line variable "CONF".
 
-  make-main.conf : This is the name of the default configuration file. This file should be
-  used as a basis for any project--it is where the build options are specified (it includes
-  detailed documentation for each option). The file can be re-named, but in this case the
-  CONF command option must be used to explicitly provide the filename. A complex build
-  project may comprise multiple instance of these configuration files.
+* **make-main.conf** : This is the name of the default configuration file. This file should be
+used as a basis for any project--it is where the build options are specified (it includes
+detailed documentation for each option). The file can be re-named, but in this case the
+CONF command option must be used to explicitly provide the filename. A complex build
+project may comprise multiple instance of these configuration files.
 
-  make-vars.conf : An additional file which supplies common values to multiple configurations
-  within the project, such as the application version number.
+* **make-vars.conf** : An additional file which supplies common values to multiple configurations
+within the project, such as the application version number.
 
-  make-defs.conf : An additional file allow command arguments to be overridden in order to
-  modify default behaviour. For example, this can be used to set the default TARG value to
-  "release" rather than "debug".
+* **make-defs.conf** : An additional file allow command arguments to be overridden in order to
+modify default behaviour. For example, this can be used to set the default TARG value to
+"release" rather than "debug".
 
 Complex projects, comprising multiple modules, may utilise several configuration files with
 dependencies. For example, building a binary file may necessitate that a library it links to
@@ -81,7 +81,7 @@ Common variables, such as an application version number, can be specified in mak
 
 ### Usage: ###
 
-`make -f makefile [GOALS] CONF=[makeconf] TARG=[release/debug/all] COMP=[gpp/mingw/msvc] ARCH=[64/32/all] CRT=[static/dynamic/all] OPTS=["custom opts"] SRCS=[files]`
+	`make -f makefile [GOALS] CONF=[makeconf] TARG=[release/debug/all] COMP=[gpp/mingw/msvc] ARCH=[64/32/all] CRT=[static/dynamic/all] OPTS=["custom opts"] SRCS=[files]`
 
 ### Goals: ###
 * all           - DEFAULT. Make and link the output. Calls pre and post-build steps.
